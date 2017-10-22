@@ -81,13 +81,15 @@ public class Database {
     }
 
     public static List<Apartment> getApartmentByCustomerId(String customerId) {
-        List<Apartment> apartments = new ArrayList<Apartment>();
+        List<Apartment> filteredApartments = new ArrayList<Apartment>();
 
         for (Apartment apartment : apartments) {
-            if (apartment.getCustomerId().equals(customerId))
-                apartments.add(apartment);
+            if (apartment.getCustomerId().equals(customerId)) {
+                System.out.println(apartment.toString());
+                filteredApartments.add(apartment);
+            }
         }
-        return apartments;
+        return filteredApartments;
     }
 
 }

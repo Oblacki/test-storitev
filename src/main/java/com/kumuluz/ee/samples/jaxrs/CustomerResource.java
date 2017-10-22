@@ -20,6 +20,7 @@
 */
 package com.kumuluz.ee.samples.jaxrs;
 
+import javax.annotation.PostConstruct;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -28,6 +29,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -48,6 +50,12 @@ public class CustomerResource {
     private HttpClient httpClient;
     private ObjectMapper objectMapper;
 
+    @PostConstruct
+    private void init() {
+        httpClient = HttpClientBuilder.create().build();
+        objectMapper = new ObjectMapper();
+    }
+
     @GET
     public Response getAllCustomers() {
         List<Customer> customers = Database.getCustomers();
@@ -58,7 +66,6 @@ public class CustomerResource {
     @Path("{customerId}")
     public Response getCustomer(@PathParam("customerId") String customerId) {
         Customer customer = Database.getCustomer(customerId);
-
         List<Apartment> apartments = getApartments(customerId);
 
         customer.setApartments(apartments);
@@ -83,6 +90,7 @@ public class CustomerResource {
 
     public List<Apartment> getApartments(String customerId){
         try {
+
             //basePath = http://localhost:8080
             HttpGet request = new HttpGet("http://localhost:8080" + "/v1/apartments/customer/" + customerId);
             HttpResponse response = httpClient.execute(request);
