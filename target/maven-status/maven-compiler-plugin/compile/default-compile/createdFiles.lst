@@ -1,7 +1,7 @@
-com\kumuluz\ee\samples\jaxrs\CustomerResource.class
-com\kumuluz\ee\samples\jaxrs\ApartmentResource.class
-com\kumuluz\ee\samples\jaxrs\CustomerApplication.class
-com\kumuluz\ee\samples\jaxrs\Customer.class
-com\kumuluz\ee\samples\jaxrs\ApartmentApplication.class
-com\kumuluz\ee\samples\jaxrs\Apartment.class
-com\kumuluz\ee\samples\jaxrs\Database.class
+CustomerApplication.class
+Apartment.class
+ApartmentResource.class
+Customer.class
+CustomerResource.class
+Database.class
+ApartmentApplication.class

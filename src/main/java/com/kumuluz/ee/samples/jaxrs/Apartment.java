@@ -1,6 +1,4 @@
 
-package com.kumuluz.ee.samples.jaxrs;
-
 /**
  * @author Matej Dolenc
  */
