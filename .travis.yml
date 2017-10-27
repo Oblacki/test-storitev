@@ -19,4 +19,4 @@ script:
 
 after_success:
 - docker login -u="oblacki" -p="oblacki123"
-- docker oblacki/test-storitev
+- docker push oblacki/test-storitev
