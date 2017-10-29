@@ -4,8 +4,8 @@ RUN mkdir /app
 
 WORKDIR /app
 
-ADD ./target/jax-rs-2.5.0-SNAPSHOT.jar /app
+ADD ./target/customers-apartments-2.5.0-SNAPSHOT.jar /app
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "jax-rs-2.5.0-SNAPSHOT.jar"]
+CMD ["java", "-jar", "customers-apartments-2.5.0-SNAPSHOT.jar"]
